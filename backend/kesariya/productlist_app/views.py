@@ -6,6 +6,8 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from .serializers import ProductSerializer
+
 
 # Create your views here.
 
@@ -13,12 +15,10 @@ from rest_framework.response import Response
 @api_view(['GET'])
 def product_list(request):
     products = Product.objects.all()
-    data = {
-        'products': list(products.values())
-    }
+    serializers = ProductSerializer(products, many=True)
     # list(products.values())
     
-    return Response(data=data)
+    return Response(serializers.data)
 
 @api_view(['GET'])
 def product_details(request, pk):
