@@ -29,6 +29,15 @@ class Product(models.Model):
     ('1', 'Dry-Clean'),
     ('2', 'Easy Wash'),
     )
+    PATTERN_CHOICE = (
+        ('1','Print'),
+        ('2','Solid'),
+    )
+    OCCASION_CHOICE = (
+        ('1','Ethinic'),
+        ('2','Party'),
+    )
+    
     
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     item_code = models.CharField(max_length=6,null=True,blank=True, unique=True)
@@ -37,6 +46,8 @@ class Product(models.Model):
                             #   default='/placeholder.png')
     brand = models.CharField(max_length=200, null=True, blank=True)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
+    pattern = models.CharField(choices=PATTERN_CHOICE, max_length=2, null=True)
+    occasion = models.CharField(choices=OCCASION_CHOICE, max_length=2, null=True)
     # size=models.CharField(max_length=20, null=True,blank=True)
     # size = models.ManyToManyField('Size',through='ItemSizeCount')
     washing = models.CharField(choices=WASHING_CHOICES,max_length=20, null=True,blank=True)
@@ -84,7 +95,7 @@ class Product(models.Model):
 
 class Variant(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE) 
-    color=   models.CharField(max_length=15)
+    color=   models.CharField(max_length=15,unique=True)
     S = models.PositiveIntegerField(default=0,max_length=2)
     M = models.PositiveIntegerField(default=0)
     L = models.PositiveIntegerField(default=0)
@@ -92,6 +103,7 @@ class Variant(models.Model):
     XXL = models.PositiveIntegerField(default=0)
    
     image = models.ImageField(blank=True)
+    video = models.FileField(blank=True)
     
     
     def __str__(self):
@@ -100,6 +112,12 @@ class Variant(models.Model):
     def image_tag(self):
         if self.image.url is not None:
             return mark_safe('<img src="{}" height = "30"/>'.format(self.image.url)) 
+        else:
+            return ""   
+        
+    def video_tag(self):
+        if self.video.url is not None:
+            return mark_safe('<a  href="{}" height = "30" target="_blank"> Link</a>'.format(self.video.url)) 
         else:
             return ""   
 # class Size(models.Model):
