@@ -63,13 +63,13 @@ class Product(models.Model):
 
 
     top_fabric = models.CharField(max_length=20, null=True,blank=True)
-    top_color  = models.CharField(max_length=20, null=True,blank=True)
+    # top_color  = models.CharField(max_length=20, null=True,blank=True)
     top_length = models.IntegerField(max_length=20, null=True,blank=True)
     bottom_fabric = models.CharField(max_length=20, null=True,blank=True)
-    bottom_color = models.CharField(max_length=20, null=True,blank=True)
+    # bottom_color = models.CharField(max_length=20, null=True,blank=True)
     bottom_length = models.IntegerField(max_length=20, null=True,blank=True)
     dupata_fabric = models.CharField(max_length=20, null=True,blank=True)
-    dupata_color = models.CharField(max_length=20, null=True,blank=True)
+    # dupata_color = models.CharField(max_length=20, null=True,blank=True)
     dupata_length = models.IntegerField(max_length=20, null=True,blank=True)
     # size=models.CharField(max_length=20, null=True,blank=True)
     
