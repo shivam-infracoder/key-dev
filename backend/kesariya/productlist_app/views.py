@@ -23,9 +23,10 @@ def product_list(request):
 @api_view(['GET'])
 def product_details(request, pk):
     product = Product.objects.get(pk=pk)
+    serializers = ProductSerializer(product)
     data = {
         'name': product.name,
         'desc': product.description,
         
     }
-    return Response(data)
+    return Response(serializers.data)

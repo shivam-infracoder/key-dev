@@ -1,4 +1,5 @@
 import React from 'react'
+import { LinkContainer } from 'react-router-bootstrap'
 
 import { Container, Navbar, Nav, Row, Form, Button, NavDropdown} from 'react-bootstrap'
 
@@ -8,17 +9,19 @@ function Header() {
         <header>
             <Navbar expand="lg"  bg='dark' style={{backgroundcolor:'white'}} data-bs-theme="dark" className="bg-body-tertiary" collapseOnSelect>
                          <Container>
-                            <Navbar.Brand href="/">
-                              Keysaria Labels
-                            {/* <img
-                                src="logo.jpeg"
-                                width="120"
-                                height="35"
-                                className="d-inline-block align-top"
-                                alt="React Bootstrap logo"
-                                
-                              /> */}
-                            </Navbar.Brand>
+                           <LinkContainer to='/'>
+                              <Navbar.Brand>
+                                Keysaria Labels
+                              {/* <img
+                                  src="logo.jpeg"
+                                  width="120"
+                                  height="35"
+                                  className="d-inline-block align-top"
+                                  alt="React Bootstrap logo"
+                                  
+                                /> */}
+                              </Navbar.Brand>
+                            </LinkContainer>
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ms-auto">

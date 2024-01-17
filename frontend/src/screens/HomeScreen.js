@@ -1,13 +1,27 @@
-import React from 'react'
-import products from '../products'
+import React, {useState, useEffect} from 'react'
+// import products from '../products'
 
 
 import { Row, Col } from 'react-bootstrap'
+import axios from 'axios'
 import CourselHome from '../components/CourselHome'
 import Product from '../components/Product'
 import VideoReels from '../components/VideoReels'
 
 function HomeScreen() {
+  const [products, setProducts] = useState([])
+
+  useEffect(()=>{
+
+    async function fetchProducts(){
+      const {data} = await axios.get('http://127.0.0.1:8000/product/list/')
+      setProducts(data)
+    }
+
+    fetchProducts()
+
+    
+  },[])
   return (
     <div>
       <CourselHome/>

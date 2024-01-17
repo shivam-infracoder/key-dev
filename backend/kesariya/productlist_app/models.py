@@ -72,6 +72,7 @@ class Product(models.Model):
     # dupata_color = models.CharField(max_length=20, null=True,blank=True)
     dupata_length = models.IntegerField(max_length=20, null=True,blank=True)
     # size=models.CharField(max_length=20, null=True,blank=True)
+    image = models.ImageField(blank=True)
     
     class Meta:
         unique_together = ("name", "category", )
@@ -94,7 +95,7 @@ class Product(models.Model):
 
 
 class Variant(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE) 
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='variants') 
     color=   models.CharField(max_length=15,unique=True)
     S = models.PositiveIntegerField(default=0,max_length=2)
     M = models.PositiveIntegerField(default=0)
