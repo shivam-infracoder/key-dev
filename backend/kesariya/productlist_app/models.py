@@ -19,7 +19,14 @@ from django.utils.safestring import mark_safe
     
 #     def __str__(self):
 #         return self.name
+
+class Category(models.Model):
+    name = models.CharField(max_length = 255)
     
+    def __str__(self):
+        return self.name
+    
+  
 class Product(models.Model):
     CATEGORY_CHOICES = (
     ('1','Stiched'),
@@ -39,6 +46,7 @@ class Product(models.Model):
     )
     
     
+    
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     item_code = models.CharField(max_length=6,null=True,blank=True, unique=True)
     style_code = models.CharField(max_length=6,null=True,blank=True)
@@ -46,7 +54,8 @@ class Product(models.Model):
     # image = models.ImageField(null=True, blank=True,
                             #   default='/placeholder.png')
     brand = models.CharField(max_length=200, null=True, blank=True)
-    category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
+    # category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     pattern = models.CharField(choices=PATTERN_CHOICE, max_length=2, null=True)
     occasion = models.CharField(choices=OCCASION_CHOICE, max_length=2, null=True)
     # size=models.CharField(max_length=20, null=True,blank=True)

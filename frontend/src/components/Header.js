@@ -28,7 +28,7 @@ function Header() {
                             <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ms-auto">
                                 
-                                <NavDropdown title="Stiched" id="basic-nav-dropdown">
+                                {/* <NavDropdown title="Stiched" id="basic-nav-dropdown">
                                   <NavDropdown.Item href="#action/3.1">Suits</NavDropdown.Item>
                                   <NavDropdown.Item href="#action/3.2">
                                     Kurtis
@@ -38,8 +38,14 @@ function Header() {
                                   <NavDropdown.Item href="#action/3.4">
                                    Coord Sets
                                   </NavDropdown.Item>
-                                 </NavDropdown>
-                                 <NavDropdown title="Unstiched" id="basic-nav-dropdown">
+                                 </NavDropdown> */}
+                                 <LinkContainer to='/category/stiched'>
+                                  <Nav.Link>stiched</Nav.Link>
+                                 </LinkContainer>
+                                 <LinkContainer to='/category/unstiched'>
+                                  <Nav.Link>Unstiched</Nav.Link>
+                                 </LinkContainer>
+                                 {/* <NavDropdown title="Unstiched" id="basic-nav-dropdown">
                                   <NavDropdown.Item href="#action/3.1">Cotton</NavDropdown.Item>
                                   <NavDropdown.Item href="#action/3.2">
                                     Silk
@@ -50,7 +56,7 @@ function Header() {
                                   Organza
                                   </NavDropdown.Item>
                                  </NavDropdown>
-                                
+                                 */}
                  
                                 &nbsp;                          
                                 <Nav.Link > <Link to='/cart/'><i className='fas fa-shopping-cart'></i></Link></Nav.Link>

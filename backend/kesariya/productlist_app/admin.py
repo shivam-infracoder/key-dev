@@ -13,6 +13,7 @@ admin.site.register(ShippingAddress)
 # admin.site.register(ItemSizeCount)
 # admin.site.register(Image)
 admin.site.register(Variant)
+admin.site.register(Category)
 
 
 # class ProductImageInline(admin.TabularInline):

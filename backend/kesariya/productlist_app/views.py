@@ -5,8 +5,9 @@ from productlist_app.models import Product
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
-from .serializers import ProductSerializer
+from .serializers import ProductSerializer, CategorySerializer
 
 
 # Create your views here.
@@ -30,3 +31,10 @@ def product_details(request, pk):
         
     }
     return Response(serializers.data)
+
+
+class ProductByCategory(APIView):
+    def get(self,request,category_id):
+        products = Product.objects.filter(category__id=category_id)
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)

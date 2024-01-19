@@ -23,7 +23,7 @@ function ProductScreen() {
             dispatch(listProductDetails(match.id))
 
     },[])
-    
+    console.log('list : ', product)
     // console.log(product.variants[0].color)
     // const varin = product.variants
     // console.log(varin)
@@ -65,19 +65,19 @@ function ProductScreen() {
                         Description: {product.description}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                        Category: {product.category}
+                        Category: {product.category.name}
                     </ListGroup.Item>
                     <ListGroup.Item>
                         Washing: {product.washing}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                        Top: {product.top_fabric} / {product.top_length}
+                        Top: {product.top_fabric} / {product.top_length} meter
                     </ListGroup.Item>
                     <ListGroup.Item>
-                    Bottom: {product.bottom_fabric} / {product.bottom_length}
+                    Bottom: {product.bottom_fabric} / {product.bottom_length} meter
                     </ListGroup.Item>
                     <ListGroup.Item>
-                    Dupatta: {product.dupata_fabric} / {product.dupata_length}
+                    Dupatta: {product.dupata_fabric} / {product.dupata_length} meter
                     </ListGroup.Item>
                 </ListGroup>
             </Col>
