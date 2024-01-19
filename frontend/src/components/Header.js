@@ -1,5 +1,7 @@
 import React from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
+import { Link } from 'react-router-dom'
+
 
 import { Container, Navbar, Nav, Row, Form, Button, NavDropdown} from 'react-bootstrap'
 
@@ -7,19 +9,19 @@ function Header() {
   return (
     
         <header>
-            <Navbar expand="lg"  bg='dark' style={{backgroundcolor:'white'}} data-bs-theme="dark" className="bg-body-tertiary" collapseOnSelect>
-                         <Container>
+            <Navbar expand="lg"  bg='dark' style={{}} data-bs-theme="dark" className="bg-body-tertiary" collapseOnSelect>
+                         <Container >
                            <LinkContainer to='/'>
                               <Navbar.Brand>
-                                Keysaria Labels
-                              {/* <img
-                                  src="logo.jpeg"
-                                  width="120"
-                                  height="35"
-                                  className="d-inline-block align-top"
+                                {/* Keysaria Labels */}
+                              <img 
+                                  src="logo1.png"
+                                  width="140em"
+                                  height="58rem"
+                                  className=""
                                   alt="React Bootstrap logo"
                                   
-                                /> */}
+                                />
                               </Navbar.Brand>
                             </LinkContainer>
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -51,7 +53,7 @@ function Header() {
                                 
                  
                                 &nbsp;                          
-                                <Nav.Link href="#home"><i className='fas fa-shopping-cart'></i></Nav.Link>
+                                <Nav.Link > <Link to='/cart/'><i className='fas fa-shopping-cart'></i></Link></Nav.Link>
                                 &nbsp;
                                 <Nav.Link href="#link"><i className='fas fa-user'></i></Nav.Link>
                                

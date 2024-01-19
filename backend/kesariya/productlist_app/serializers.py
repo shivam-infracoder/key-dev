@@ -26,4 +26,4 @@ class ProductSerializer(serializers.ModelSerializer):
     variants =  VariantSerializer(many=True)
     class Meta:
         model = Product
-        fields = ['_id','item_code','name','brand','category','washing','description','variants','rating','numReviews','price','image','occasion','top_fabric','top_length','bottom_fabric','bottom_length','dupata_fabric','dupata_length']
+        fields = ['_id','item_code','name','brand','category','washing','description','variants','rating','numReviews','price','image','occasion','top_fabric','top_length','bottom_fabric','bottom_length','dupata_fabric','dupata_length','count_in_stock']
