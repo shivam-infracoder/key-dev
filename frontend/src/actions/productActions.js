@@ -29,7 +29,7 @@ import {
     try{
 
         dispatch({type: PRODUCT_DETAILS_REQUEST})
-        const {data} = await axios.get(`http://3.106.170.226/product/${id}`)
+        const {data} = await axios.get(`http://3.106.170.226:8000/product/${id}`)
         dispatch({type: PRODUCT_DETAILS_SUCCESS, payload: data})
     }
 

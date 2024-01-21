@@ -8,6 +8,9 @@ import ProductScreen from './screens/ProductScreen'
 import CartScreen from './screens/CartScreen'
 import CategoryScreen from './screens/CategoryScreen'
 import StichedCategoryScreen from './screens/StichedCategoryScreen'
+import ShippingScreen from './screens/ShippingScreen'
+import SlotBookScreen from './screens/SlotBookScreen'
+import PlaceSandook from './screens/PlaceSandook'
 
 function App() {
   return (
@@ -23,6 +26,11 @@ function App() {
             <Route path='/cart/:id?' Component={CartScreen}  />
             <Route path='/category/unstiched' Component={CategoryScreen}  />
             <Route path='/category/stiched' Component={StichedCategoryScreen}  />
+            
+            <Route path='/shipping' Component={ShippingScreen}  />
+            <Route path='/slotbooking' Component={SlotBookScreen}  />
+            <Route path='/placesandook' Component={PlaceSandook}  />
+
             </Routes>
           </Container>
           

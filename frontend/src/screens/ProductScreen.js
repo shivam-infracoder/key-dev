@@ -65,7 +65,7 @@ function ProductScreen() {
                         Description: {product.description}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                        Category: {product.category.name}
+                        Category: { product.category ? product.category.name : 'Loading...'}
                     </ListGroup.Item>
                     <ListGroup.Item>
                         Washing: {product.washing}
