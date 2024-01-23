@@ -38,6 +38,8 @@ function ShippingScreen() {
         localStorage.setItem('state',JSON.stringify(state))
         localStorage.setItem('postal',JSON.stringify(postalCode))
         localStorage.setItem('shippingADDR',JSON.stringify(shippingAdd))
+        localStorage.setItem('name',JSON.stringify(name))
+        localStorage.setItem('contact',JSON.stringify(contact))
 
         navigate('/slotbooking')
     }
@@ -55,10 +57,27 @@ function ShippingScreen() {
                         <Form.Label>Address</Form.Label>
                         <Form.Control type="text" placeholder="Address" required onChange={(e)=> setAddress(e.target.value)} />
                     </Form.Group> */}
+                    <Row>
+                      <Col>
+                      <Form.Group className="mb-3" controlId="formGridAddress1">
+                      <Form.Label>Name</Form.Label>
+                      <Form.Control placeholder="Name" required onChange={(e)=> setName(e.target.value)}  />
+                     </Form.Group>
+                      </Col>
+                      <Col>
+                      <Form.Group className="mb-3" controlId="formGridAddress1">
+                      <Form.Label>Contact</Form.Label>
+                      <Form.Control  placeholder="Contact Number" required onChange={(e)=> setContact(e.target.value)}  />
+                     </Form.Group>
+                      </Col>
+                    </Row>
+                     
+
                     <Form.Group className="mb-3" controlId="formGridAddress1">
-        <Form.Label>Address</Form.Label>
-        <Form.Control placeholder="1234 Main St" required onChange={(e)=> setAddress(e.target.value)}  />
-      </Form.Group>
+                      <Form.Label>Address</Form.Label>
+                      <Form.Control placeholder="Address" required onChange={(e)=> setAddress(e.target.value)}  />
+                     </Form.Group>
+                     
 
       <Form.Group className="mb-3" controlId="formGridAddress2">
         <Form.Label>Address 2</Form.Label>
@@ -69,9 +88,9 @@ function ShippingScreen() {
         <Form.Group as={Col} controlId="formGridCity">
           <Form.Label>City</Form.Label>
           <Form.Select defaultValue="ghaziabad" required onChange={(e)=> setCity(e.target.value)} > 
-          {/* <option>Choose...</option> */}
+          <option>Choose...</option>
             <option value='Ghaziabad'>Ghaziazabd</option>
-            <option>Noida</option>
+            <option value='Noida'>Noida</option>
             {/* <option>...</option> */}
           </Form.Select>
         </Form.Group>
@@ -79,8 +98,8 @@ function ShippingScreen() {
         <Form.Group as={Col} controlId="formGridState">
           <Form.Label>State</Form.Label>
           <Form.Select defaultValue="Choose..." required onChange={(e)=> setState(e.target.value)} >
-            {/* <option>Choose...</option> */}
-            <option>Uttar Pradeh</option>
+            <option>Choose...</option>
+            <option value='UP'>Uttar Pradeh</option>
             {/* <option>...</option> */}
           </Form.Select>
         </Form.Group>
@@ -89,8 +108,8 @@ function ShippingScreen() {
           <Form.Label>Zip</Form.Label>
           <Form.Select defaultValue="Choose..." required onChange={(e)=> setPostalCode(e.target.value)}>
           {/* <option>Choose...</option> */}
-            <option>201010</option>
-            <option>201019</option>
+            <option value='201010'>201010</option>
+            <option value='201019'>201019</option>
             {/* <option>...</option> */}
           </Form.Select>
         </Form.Group>

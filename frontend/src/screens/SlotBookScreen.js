@@ -8,20 +8,18 @@ import CheckoutSteps from '../components/CheckoutSteps'
 
 function SlotBookScreen() {
     const navigate = useNavigate()
-    const [address,setAddress] =useState('')
-    const [city,setCity] =useState('')
-    const [state,setState] =useState('')
-    const [postalCode,setPostalCode] =useState('')
-    const [country,setCountry] =useState('')
+
     const [date,setDate] =useState('')
     const [time,setTime] =useState('')
-    const [contact,setContact] =useState('')
-    const [name,setName] =useState('')
+ 
 
 
     const submitHandler = (e) =>{
         e.preventDefault()
         navigate('/placesandook')
+
+        localStorage.setItem('date',JSON.stringify(date))
+        localStorage.setItem('time',JSON.stringify(time))
     }
 
   return (
@@ -38,15 +36,16 @@ function SlotBookScreen() {
                     </Form.Group> */}
                     <Form.Group className="mb-3" controlId="formGridAddress1">
         <Form.Label>Select Date</Form.Label>
-        <Form.Control type='date' required onChange={(e)=> setAddress(e.target.value)}  />
+        <Form.Control type='date' required onChange={(e)=> setDate(e.target.value)}  />
       </Form.Group>
-      <Form.Select defaultValue="ghaziabad" required onChange={(e)=> setCity(e.target.value)} > 
+      <Form.Select defaultValue="ghaziabad" required onChange={(e)=> setTime(e.target.value)} > 
       <Form.Label>Select Slot</Form.Label>
-          {/* <option>Choose...</option> */}
-            <option>9:00 A.M - 11:00 A.M</option>
-            <option>11:00 A.M - 01:00 P.M</option>
-            <option>01:00 P.M - 03:00 P.M</option>
-            <option>03:00 P.M - 05:00 P.M</option>
+          <option>Choose...</option>
+
+            <option value="9:00 A.M - 11:00 A.M">9:00 A.M - 11:00 A.M</option>
+            <option value='11:00 A.M - 01:00 P.M'>11:00 A.M - 01:00 P.M</option>
+            <option value="01:00 P.M - 03:00 P.M">01:00 P.M - 03:00 P.M</option>
+            <option value="03:00 P.M - 05:00 P.M">03:00 P.M - 05:00 P.M</option>
             
             {/* <option>...</option> */}
           </Form.Select>

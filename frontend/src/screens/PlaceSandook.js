@@ -36,6 +36,14 @@ function PlaceSandook() {
     // navigate('/shipping/')
     alert('Yipeeee')
   }
+  const bookSandook = (e) =>{
+    e.preventDefault()
+    alert('Sandook Confrimed !')
+    localStorage.clear('cartItems')
+    navigate('/')
+
+
+}
 
   return (
     <Row>
@@ -43,41 +51,50 @@ function PlaceSandook() {
           <Card>
               <ListGroup variant='flush'>
                 <ListGroup.Item>
-                  <h2>Booking Confirmed </h2>
+                  <h2>Booking Details </h2>
                   
                 </ListGroup.Item>
-
+                <ListGroup.Item>
+                  <Row>
+                    <Col md={1}><i className='fas fa-user'></i></Col>
+                    <Col md={5}>{localStorage.getItem('name').slice(1,-1)}</Col>
+                  </Row>
+                  <Row>
+                  <Col md={1}><i className='fas fa-phone'></i></Col>
+                    <Col>{localStorage.getItem('contact').slice(1,-1)}</Col>
+                  </Row>
+                  </ListGroup.Item>
                 <ListGroup.Item>
                     <Row>
-                        <Col>
-                        Address
+                        <Col md={1}>
+                        <i class='fas fa-address-card'></i>
                         </Col>
                         <Col>
-                        {(localStorage.getItem('address1'))}
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                        City
-                        </Col>
-                        <Col>
-                        {(localStorage.getItem('city'))}
+                        {(localStorage.getItem('address1')).slice(1,-1)} , {(localStorage.getItem('address2')).slice(1,-1)} 
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
-                        State
+                        <Col md={1}>
+                        {/* City */}
                         </Col>
-                        <Col>
-                        {(localStorage.getItem('state'))}
+                        <Col >
+                        {(localStorage.getItem('city')).slice(1,-1)}
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
-                        Postal
+                        <Col md={1}>
+                        {/* State */}
                         </Col>
                         <Col>
-                        {(localStorage.getItem('postal'))}
+                        {(localStorage.getItem('state')).slice(1,-1)} - {(localStorage.getItem('postal')).slice(1,-1)}
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={1}>
+                        {/* Postal */}
+                        </Col>
+                        <Col >
+                        
                         </Col>
                     </Row>
                   
@@ -91,11 +108,24 @@ function PlaceSandook() {
                       Proceed To Checkout
                   </Button> */}
                 </ListGroup.Item>
+                <ListGroup.Item>
+                  <Row>
+                    <Col md={1}><i class='fas fa-calendar-alt'></i></Col>
+                    <Col>{localStorage.getItem('date').slice(1,-1)}</Col>
+                  </Row>
+                  <Row>
+                  <Col md={1}><i class='fas fa-clock'></i></Col>
+                    <Col>{localStorage.getItem('time').slice(1,-1)}</Col>
+                  </Row>
+                  </ListGroup.Item>
               </ListGroup>
           </Card>
+          <Button type='submit' onClick={bookSandook} className='my-3'>
+                            Book Now 
+                        </Button>
         </Col>
-        <Col md={8}>
-          <h1>Confirm Your Sandook</h1>
+        <Col md={6}>
+          <h1>Confirm Your Sandook  <i class='fas fa-box-open'></i></h1>
           {cartItems.length === 0 ?
               <Message variant='info'>
                   Sandook is empty <Link to ='/'> Shop Now</Link>
@@ -141,8 +171,13 @@ function PlaceSandook() {
               )
         }
         </Col>
+        <Col>
+ 
+        </Col>
 
     </Row>
+
+
   )
 }
 

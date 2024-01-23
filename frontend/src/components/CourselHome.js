@@ -3,25 +3,25 @@ import { Carousel } from 'react-bootstrap'
 
 function CourselHome() {
   return (
-    <Carousel className='py-2'>
-    <Carousel.Item interval={1000}>
+    <Carousel className='pm-0'>
+    <Carousel.Item interval={1500}>
     <img 
             className="d-block w-100"
-src="/images/first.png"
+src="/images/first.jpeg"
             alt="Image One"
-            style={{height:400}}
+            style={{height:345 }}
           /> 
       <Carousel.Caption>
         {/* <h3>First slide label</h3>
         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
       </Carousel.Caption>
     </Carousel.Item>
-    <Carousel.Item interval={1000}>
+    <Carousel.Item interval={1500}>
     <img 
             className="d-block w-100"
-src="/images/4.png"
+src="/images/second.jpeg"
             alt="Image Two"
-            style={{height:400}}
+            style={{height:345}}
           /> 
       <Carousel.Caption>
         {/* <h3>Second slide label</h3>
