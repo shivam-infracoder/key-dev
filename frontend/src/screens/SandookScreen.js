@@ -26,7 +26,7 @@ function SandookScreen() {
 
   useEffect(() => {
     async function fetchProducts(){
-      const {data} = await axios.get('http://127.0.0.1:8000/product/list')
+      const {data} = await axios.get('http://13.210.170.246:8000/product/list')
       setProducts(data)
       setFilterProducts(data)
       console.log(data)

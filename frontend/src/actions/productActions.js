@@ -13,7 +13,7 @@ import {
     try{
 
         dispatch({type: PRODUCT_LIST_REQUEST})
-        const {data} = await axios.get('http://127.0.0.1:8000/product/list/')
+        const {data} = await axios.get('http://13.210.170.246:8000/product/list/')
         dispatch({type: PRODUCT_LIST_SUCCESS, payload: data})
     }
 
@@ -29,7 +29,7 @@ import {
     try{
 
         dispatch({type: PRODUCT_DETAILS_REQUEST})
-        const {data} = await axios.get(`http://127.0.0.1:8000/product/${id}`)
+        const {data} = await axios.get(`http://13.210.170.246:8000/product/${id}`)
         dispatch({type: PRODUCT_DETAILS_SUCCESS, payload: data})
     }
 

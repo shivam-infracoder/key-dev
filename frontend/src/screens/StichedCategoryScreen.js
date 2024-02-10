@@ -19,7 +19,7 @@ function StichedCategoryScreen() {
   const [products, setProducts] = useState([])
   useEffect(() => {
     async function fetchProducts(){
-      const {data} = await axios.get('http://127.0.0.1:8000/product/category/1')
+      const {data} = await axios.get('http://13.210.170.246:8000/product/category/1')
       setProducts(data)
     }
 
