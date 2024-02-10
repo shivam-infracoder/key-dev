@@ -19,7 +19,7 @@ function CategoryScreen() {
   const [products, setProducts] = useState([])
   useEffect(() => {
     async function fetchProducts(){
-      const {data} = await axios.get('http://13.210.170.246:8000/product/category/2')
+      const {data} = await axios.get('http://127.0.0.1:8000/product/category/2')
       setProducts(data)
     }
 
@@ -42,7 +42,7 @@ function CategoryScreen() {
          <Row>
 
             {products.map(product => (
-                <Col key={product._id} sm={12} md={6} lg={4}>
+                <Col key={product._id} xs={12} sm={6} md={6} lg={3}>
                     {/* <h3>{product.name}</h3> */}
                     <Product product={product} />
                 </Col>

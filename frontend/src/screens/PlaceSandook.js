@@ -6,6 +6,7 @@ import Message from '../components/Message'
 import {  addToCart, removeFromCart } from '../actions/cartActions'
 import {  Link,useParams, useNavigate, useLocation, useSearchParams} from 'react-router-dom'
 import CheckoutSteps from '../components/CheckoutSteps'
+import axios from 'axios'
 
 
 function PlaceSandook() {
@@ -39,6 +40,32 @@ function PlaceSandook() {
   const bookSandook = (e) =>{
     e.preventDefault()
     alert('Sandook Confrimed !')
+    const shippingAdd = {
+      "address":(localStorage.getItem('address1')).slice(1,-1),
+      "address2":(localStorage.getItem('address1')).slice(1,-1),
+      "city":(localStorage.getItem('city')).slice(1,-1),
+      "state":(localStorage.getItem('state')).slice(1,-1),
+      "postalCode":(localStorage.getItem('postal')).slice(1,-1),
+      
+  }
+   const confirmingOrder={
+      orderItems:cartItems,
+      shippingAddress: shippingAdd,
+      paymentMethod:'CARD',
+      itemPrice:'2600',
+      totalPrice:cartItems.reduce((acc, item) => acc + item.qty * item.price,0).toFixed(2),
+      name:localStorage.getItem('name'),
+      contact:localStorage.getItem('contact'),
+      date:localStorage.getItem('date'),
+      time:localStorage.getItem('time')
+    }
+    console.log(confirmingOrder)
+
+    async function saveOrder(confirmingOrder){
+      const {data} = await axios.post('http://127.0.0.1:8000/product/order/create',confirmingOrder)
+      // setProducts(data)
+    }
+    saveOrder(confirmingOrder)
     localStorage.clear('cartItems')
     navigate('/')
 

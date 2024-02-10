@@ -11,6 +11,8 @@ import StichedCategoryScreen from './screens/StichedCategoryScreen'
 import ShippingScreen from './screens/ShippingScreen'
 import SlotBookScreen from './screens/SlotBookScreen'
 import PlaceSandook from './screens/PlaceSandook'
+import SandookScreen from './screens/SandookScreen';
+import SandookPayment from './screens/SandookPayment';
 
 function App() {
   return (
@@ -27,7 +29,11 @@ function App() {
             <Route path='/category/unstiched' Component={CategoryScreen}  />
             <Route path='/category/stiched' Component={StichedCategoryScreen}  />
             
+            
+            <Route path='/mysandook' Component={SandookScreen}  />
             <Route path='/shipping' Component={ShippingScreen}  />
+            <Route path='/sandookPayment' Component={SandookPayment}  />
+
             <Route path='/slotbooking' Component={SlotBookScreen}  />
             <Route path='/placesandook' Component={PlaceSandook}  />
 

@@ -24,7 +24,7 @@ function SlotBookScreen() {
 
   return (
     <Container>
-        <CheckoutSteps step1 step2 />
+        <CheckoutSteps step1 step2 step3/>
         <Row className='justify-content-md-center'>
             <Col xs={12} md={6}>
 

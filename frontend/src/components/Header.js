@@ -9,7 +9,7 @@ function Header() {
   return (
     
         <header>
-            <Navbar expand="lg"  bg='dark' style={{}} data-bs-theme="dark" className="bg-body-tertiary" collapseOnSelect>
+            <Navbar expand="lg"  bg='dark' fixed='top' data-bs-theme="dark" className="bg-body-tertiary" collapseOnSelect>
                          <Container >
                            <LinkContainer to='/'>
                               <Navbar.Brand>
@@ -39,6 +39,9 @@ function Header() {
                                    Coord Sets
                                   </NavDropdown.Item>
                                  </NavDropdown> */}
+                                 <LinkContainer to='/mysandook'>
+                                  <Nav.Link>Book Sandook</Nav.Link>
+                                 </LinkContainer>
                                  <LinkContainer to='/category/stiched'>
                                   <Nav.Link>stiched</Nav.Link>
                                  </LinkContainer>

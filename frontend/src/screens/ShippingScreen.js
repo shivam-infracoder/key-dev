@@ -41,7 +41,7 @@ function ShippingScreen() {
         localStorage.setItem('name',JSON.stringify(name))
         localStorage.setItem('contact',JSON.stringify(contact))
 
-        navigate('/slotbooking')
+        navigate('/sandookPayment')
     }
 
   return (

@@ -12,6 +12,7 @@ function CartScreen() {
   const navigate = useNavigate()
   const match = useParams()
   const location = useLocation()
+  var totalPrice=null
 
   const productID = match.id
   const qty = location.search ? Number(location.search.split('=')[1]) : 1
@@ -32,6 +33,8 @@ function CartScreen() {
   }
 
   const checkOutHandler = () => {
+    localStorage.setItem('finalPrice',cartItems.reduce((acc, item) => acc + item.qty * item.price,0).toFixed(2))
+    // alert()
     navigate('/shipping/')
   }
 
@@ -94,6 +97,7 @@ function CartScreen() {
                 <ListGroup.Item>
                   <h2>Subtotal ({cartItems.reduce((acc, item) => acc + item.qty,0)}) Items </h2>
                   Rs. {cartItems.reduce((acc, item) => acc + item.qty * item.price,0).toFixed(2)}
+                  
                 </ListGroup.Item>
 
                 <ListGroup.Item>
