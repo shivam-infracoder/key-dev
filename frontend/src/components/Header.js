@@ -9,7 +9,7 @@ function Header() {
   return (
     
         <header>
-            <Navbar expand="lg"  bg='dark' fixed='top' data-bs-theme="dark" className="bg-body-tertiary" collapseOnSelect>
+            <Navbar expand="lg"  bg='dark'  data-bs-theme="dark" className="bg-body-tertiary" collapseOnSelect>
                          <Container >
                            <LinkContainer to='/'>
                               <Navbar.Brand>
