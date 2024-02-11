@@ -39,6 +39,7 @@ function CartScreen() {
   }
 
   return (
+    <>
     <Row>
         <Col md={8}>
           <h1>My Sandook</h1>
@@ -90,9 +91,12 @@ function CartScreen() {
                 </ListGroup>
               )
         }
+
+
+       
         </Col>
         <Col md={4}>
-          <Card>
+          <Card className='shadow-lg'>
               <ListGroup variant='flush'>
                 <ListGroup.Item>
                   <h2>Subtotal ({cartItems.reduce((acc, item) => acc + item.qty,0)}) Items </h2>
@@ -114,6 +118,8 @@ function CartScreen() {
           </Card>
         </Col>
     </Row>
+
+    </>
   )
 }
 

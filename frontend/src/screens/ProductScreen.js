@@ -68,10 +68,10 @@ function ProductScreen() {
                         Category: { product.category ? product.category.name : 'Loading...'}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                        Washing: {product.washing.name}
+                        Washing: {product.washing ? product.washing.name : 'Loading...'}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                        Pattern: {product.pattern.name}
+                        Pattern: {product.pattern ? product.pattern.name : 'Loading...'}
                     </ListGroup.Item>
                     <ListGroup.Item>
                         Top: {product.top_fabric} / {product.top_length} meter

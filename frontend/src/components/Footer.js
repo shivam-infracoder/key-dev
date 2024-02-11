@@ -37,7 +37,7 @@ function Footer() {
           </Row>
             <Row>
                 <Col className='text-center py-3'>
-                    Copyright &copy; Kesariya (demo-app)
+                    Copyright &copy; Keysaria (demo-app)
                 </Col>
             </Row>
         </Container>

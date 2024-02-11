@@ -26,6 +26,35 @@ function SandookPayment() {
     <Container>
         <CheckoutSteps step1 step2 />
         <Row className='justify-content-md-center'>
+        <Col xs={12} md={4} >
+{/* <h2>Sandook Calculation</h2> */}
+
+<Card className='rounded shadow-lg my-0' border='primary' >
+  <Card.Header className='' style={{backgroundColor:"#cfcbcb"}} >Sandook Bill</Card.Header>
+  <>
+              <ListGroup variant='flush' >
+                <ListGroup.Item style={{backgroundColor:"#eef0f1"}}>
+                  <h5>Total  </h5>
+                  Rs. {localStorage.getItem('finalPrice')}
+                  
+                </ListGroup.Item>
+
+                <ListGroup.Item style={{backgroundColor:"whitesmoke"}}>
+              
+                <h5>Advance Payment  </h5>
+                  Rs. {Number(localStorage.getItem('finalPrice'))*10/100}
+                  
+                </ListGroup.Item>
+                <ListGroup.Item style={{backgroundColor:"white"}}>
+              
+              <h5>Balance </h5>
+                Rs. { Number(localStorage.getItem('finalPrice'))- Number(localStorage.getItem('finalPrice'))*10/100}
+                
+              </ListGroup.Item>
+              </ListGroup>
+              </>
+          </Card>
+</Col>
             <Col xs={12} md={6}>
 
                 <h2>Pay with</h2>
@@ -40,7 +69,7 @@ function SandookPayment() {
         <Form.Control  required   />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formGridAddress1">
+      {/* <Form.Group className="mb-3" controlId="formGridAddress1">
         <Form.Label>Cards <i class="fas fa-credit-card" aria-hidden="true"></i> <i class="fa fa-cc-visa"></i></Form.Label>
         <Form.Control   />
       </Form.Group>
@@ -49,7 +78,7 @@ function SandookPayment() {
       <Form.Group className="mb-3" controlId="formGridAddress1">
         <Form.Label>Net Banking <i class="fas fa-university" aria-hidden="true"></i></Form.Label>
         <Form.Control  />
-      </Form.Group>
+      </Form.Group> */}
   
   
      
@@ -60,32 +89,7 @@ function SandookPayment() {
                         </Button>
                 </Form>
                             </Col>
-<Col xs={4}>
-{/* <h2>Sandook Calculation</h2> */}
 
-<Card>
-              <ListGroup variant='flush'>
-                <ListGroup.Item>
-                  <h5>Total  </h5>
-                  Rs. {localStorage.getItem('finalPrice')}
-                  
-                </ListGroup.Item>
-
-                <ListGroup.Item>
-              
-                <h5>Advance Payment  </h5>
-                  Rs. {Number(localStorage.getItem('finalPrice'))*10/100}
-                  
-                </ListGroup.Item>
-                <ListGroup.Item>
-              
-              <h5>Balance </h5>
-                Rs. { Number(localStorage.getItem('finalPrice'))- Number(localStorage.getItem('finalPrice'))*10/100}
-                
-              </ListGroup.Item>
-              </ListGroup>
-          </Card>
-</Col>
         </Row>
       
       {/* contact details 

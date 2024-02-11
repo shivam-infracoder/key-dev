@@ -26,7 +26,7 @@ function SandookScreen() {
 
   useEffect(() => {
     async function fetchProducts(){
-      const {data} = await axios.get('http://13.210.170.246:8000/product/list')
+      const {data} = await axios.get('http://13.239.113.56:8000/product/list')
       setProducts(data)
       setFilterProducts(data)
       console.log(data)
@@ -210,16 +210,18 @@ const patternHandler = (cat) =>{
   }
   return (
     <div>
-      
+           <Button size='sm' variant="success" className='filter-float' onClick={handleShow}>
+        <i className='fas fa-filter fa-lg'></i>
+      </Button>   
+         
       
       <div class="strike">
         <span><h1 className='my-3'>Book Your Sandook</h1></span>
       </div>
          {/* <VideoReels /> */}
         {/* <h1 className='mb-4 mt-2'>Latest</h1> */}
-        <Button variant="primary" onClick={handleShow} style={{position:'relative'}}>
-        Filter
-      </Button>
+        {/* <Button className='filter-float'> text</Button> */}
+
         <Modal show={show} onHide={handleClose}  size="lg">
         <Modal.Header closeButton>
           <Modal.Title>Filters</Modal.Title>
@@ -230,7 +232,7 @@ const patternHandler = (cat) =>{
           <div className="p-2">
             <form onSubmit={(e) => e.preventDefault()}>
               <input
-              size={46}
+              size={30}
                 type='text'
                 name='text'
                 placeholder='SEARCH'
@@ -463,8 +465,7 @@ const patternHandler = (cat) =>{
     
         <Row>
           
-        
-         
+   
                 <Row>
                   {
                     filterProducts.length == 0 ? "No Product"  :
@@ -483,6 +484,7 @@ const patternHandler = (cat) =>{
 
             
          </Row>
+         
 
              {/* } */}
     </div>

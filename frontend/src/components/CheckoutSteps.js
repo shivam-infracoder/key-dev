@@ -9,7 +9,7 @@ function CheckoutSteps({step1,step2,step3,step4}) {
             <NavItem>
                 {step1 ? (
                     <LinkContainer to='/shipping'>
-                    <Nav.Link>Sanodok Coming</Nav.Link>
+                    <Nav.Link>Sandook Coming</Nav.Link>
                 </LinkContainer>
                 ): (
                     <Nav.Link disabled>Sandook Coming</Nav.Link>

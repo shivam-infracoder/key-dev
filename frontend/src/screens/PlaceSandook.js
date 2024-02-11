@@ -62,7 +62,7 @@ function PlaceSandook() {
     console.log(confirmingOrder)
 
     async function saveOrder(confirmingOrder){
-      const {data} = await axios.post('http://127.0.0.1:8000/product/order/create',confirmingOrder)
+      const {data} = await axios.post('http://13.239.113.56:8000/product/order/create',confirmingOrder)
       // setProducts(data)
     }
     saveOrder(confirmingOrder)
@@ -149,10 +149,10 @@ function PlaceSandook() {
           </Card>
           <Button type='submit' onClick={bookSandook} className='my-3'>
                             Book Now 
-                        </Button>
+                        </Button> 
         </Col>
         <Col md={6}>
-          <h1>Confirm Your Sandook  <i class='fas fa-box-open'></i></h1>
+          <h1>Confirm Your Sandook  </h1>
           {cartItems.length === 0 ?
               <Message variant='info'>
                   Sandook is empty <Link to ='/'> Shop Now</Link>
@@ -199,7 +199,10 @@ function PlaceSandook() {
         }
         </Col>
         <Col>
- 
+        
+  <video style={{height:100, width:100}} playsInline autoPlay muted loop >  
+  <source src='http://localhost:3000/1.mp4'></source>    </video> 
+   
         </Col>
 
     </Row>

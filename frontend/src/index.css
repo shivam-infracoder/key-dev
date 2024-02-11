@@ -85,3 +85,17 @@ h2{
         min-width: 0;
         width: 100%;
     }
+
+.filter-float{
+    position: sticky;
+    top: 30px;
+    right: 5px;
+    box-shadow: 3px 3px 4px #999;
+    border-radius: 50%;
+    z-index: 100;
+    float: left;
+}
+
+.my-filter{
+    margin-top: 10px;
+}
