@@ -1,14 +1,14 @@
 # Shivam Infra Coder 
 
 from django.shortcuts import render
-from productlist_app.models import Product, Order, OrderItem, ShippingAddress
+from productlist_app.models import Product, Order, OrderItem, ShippingAddress, FeaturedProduct, Category, Pattern, Collection
 from django.http import JsonResponse
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .serializers import ProductSerializer, CategorySerializer
+from .serializers import ProductSerializer, CategorySerializer, FeaturedProductSerializer, PatternSerializer, CollectionSerializer
 
 
 # Create your views here.
@@ -34,13 +34,54 @@ def product_details(request, pk):
     return Response(serializers.data)
 
 
+class CategoryList(APIView):
+    def get(self,request):
+        categories=Category.objects.all()
+        serializer = CategorySerializer(categories, many=True)
+        return Response(serializer.data)
+
+class CollectionList(APIView):
+    def get(self,request):
+        categories=Collection.objects.all()
+        serializer = CollectionSerializer(categories, many=True)
+        return Response(serializer.data)
+    
+class PatternList(APIView):
+    def get(self,request):
+        patterns = Pattern.objects.all()
+        # pattern=Pattern.objects.all()
+        serializer = PatternSerializer(patterns,many=True)
+        
+        return Response(serializer.data)
+
 class ProductByCategory(APIView):
     def get(self,request,category_id):
         products = Product.objects.filter(category__id=category_id)
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
     
+
+class ProductByPattern(APIView):
+    def get(self,request,pattern_id):
+        products = Product.objects.filter(pattern_id=pattern_id)
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
     
+class ProductByStyleCode(APIView):
+    def get(self,request,style):
+        products = Product.objects.filter(style_code=style)
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
+    
+    
+
+
+class FeaturedProductList(APIView):
+    def get(self,request):
+        products = FeaturedProduct.objects.all()
+        serializer = FeaturedProductSerializer(products, many=True)
+        # print()
+        return Response(serializer.data)
     
 #order view  
 

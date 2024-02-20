@@ -22,30 +22,41 @@ from django.utils.safestring import mark_safe
 
 class Category(models.Model):
     name = models.CharField(max_length = 255)
+    image = models.ImageField(blank=True)
+    video = models.FileField(blank=True)
     
     def __str__(self):
         return self.name
     
 class Occasion(models.Model):
     name = models.CharField(max_length = 255)
-    
+    image = models.ImageField(blank=True)
+    video = models.FileField(blank=True)    
     def __str__(self):
         return self.name
     
 
 class Washing(models.Model):
     name = models.CharField(max_length = 255)
-    
+    image = models.ImageField(blank=True)
+    video = models.FileField(blank=True)    
     def __str__(self):
         return self.name
     
 class Pattern(models.Model):
     name = models.CharField(max_length = 255)
-    
+    image = models.ImageField(blank=True)
+    video = models.FileField(blank=True)    
     def __str__(self):
         return self.name
     
-        
+class Collection(models.Model):
+    name = models.CharField(max_length = 255)
+    image = models.ImageField(blank=True)
+    video = models.FileField(blank=True)    
+    def __str__(self):
+        return self.name
+    
 class Product(models.Model):
     CATEGORY_CHOICES = (
     ('1','Stiched'),
@@ -72,7 +83,8 @@ class Product(models.Model):
     brand = models.CharField(max_length=200, null=True, blank=True)
     # category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    
+    collection = models.ForeignKey(Collection, on_delete=models.CASCADE, null=True, blank=True)
+
     pattern = models.ForeignKey(Pattern, on_delete=models.CASCADE)
     occasion = models.ForeignKey(Occasion, on_delete=models.CASCADE)
     # size=models.CharField(max_length=20, null=True,blank=True)
@@ -102,6 +114,7 @@ class Product(models.Model):
     image = models.ImageField(blank=True)
     video = models.FileField(blank=True)
     count_in_stock=models.PositiveIntegerField(default =0, blank=True, null=True)
+    
     
     class Meta:
         unique_together = ("name", "category", )
@@ -224,3 +237,12 @@ class ShippingAddress(models.Model):
     
     
 # class ShippingAddress:
+
+# Featured model 
+class FeaturedProduct(models.Model):
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.product.name
+    
+    

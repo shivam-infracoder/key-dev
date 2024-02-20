@@ -20,6 +20,8 @@ admin.site.register(Category)
 admin.site.register(Washing)
 admin.site.register(Occasion)
 admin.site.register(Pattern)
+admin.site.register(FeaturedProduct)
+admin.site.register(Collection)
 
 
 # class ProductImageInline(admin.TabularInline):
@@ -43,8 +45,8 @@ class ProductVariantInline(admin.TabularInline):
     
 @admin.register(Product)
 class PersonAdmin(admin.ModelAdmin):
-    list_display = ("name","item_code", "category","rating",'price',)
-    list_filter = ("category",'item_code','washing','pattern','brand')
+    list_display = ("name","item_code", "category","rating",'price','style_code',)
+    list_filter = ("category",'item_code','washing','pattern','brand','style_code',)
     search_fields = ("name__startswith", )
     inlines = [ProductVariantInline]
 # class Product(admin.ModelAdmin):

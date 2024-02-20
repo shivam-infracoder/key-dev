@@ -47,6 +47,9 @@ function ProductScreen() {
             <Row>
             <Col md={3}>
                 <Image src={product.image} alt={product.name}  fluid height={'auto'} rounded / >
+                <Row>
+                            <Button onClick={addToCartHandler} className='btn-block' type='button' disabled={product.count_in_stock == 0} > Add to Sandook</Button></Row>
+                          
             </Col>
             <Col md={6}>
                 <ListGroup variant='flush'>
@@ -60,6 +63,7 @@ function ProductScreen() {
     
                     <ListGroup.Item>
                         Price: Rs. {product.price}
+                        
                     </ListGroup.Item>
                     <ListGroup.Item>
                         Description: {product.description}
@@ -91,6 +95,7 @@ function ProductScreen() {
                             <Row>
                                 <Col>Price</Col>
                                 <Col><strong>{product.price}</strong></Col>
+
                             </Row>
                         </ListGroup.Item>
     
@@ -134,6 +139,12 @@ function ProductScreen() {
                         <ListGroup.Item>
                             <Row>
                             <Button onClick={addToCartHandler} className='btn-block' type='button' disabled={product.count_in_stock == 0} > Add to Sandook</Button></Row>
+                            
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            <Row>
+                            <Button onClick={addToCartHandler} className='btn-block' type='button' disabled={product.count_in_stock == 0} > Add to Cart</Button></Row>
+                            
                         </ListGroup.Item>
                     </ListGroup>
                 </Card>

@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 
-from .models import Product, Variant, Category, Order, OrderItem, ShippingAddress, Occasion, Washing, Pattern
+from .models import Product, Variant, Category, Order, OrderItem, ShippingAddress, Occasion, Washing, Pattern, FeaturedProduct, Collection
 
 
 # class SizeSerializer(serializers.ModelSerializer):
@@ -36,6 +36,11 @@ class PatternSerializer(serializers.ModelSerializer):
         model = Pattern
         fields = '__all__'
         
+class CollectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Collection
+        fields = '__all__'
+        
 class WashingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Washing
@@ -49,9 +54,10 @@ class ProductSerializer(serializers.ModelSerializer):
     occasion = OccasionSerializer()
     washing = WashingSerializer()
     variants =  VariantSerializer(many=True)
+    collection = CollectionSerializer()
     class Meta:
         model = Product
-        fields = ['_id','item_code','name','brand','category','washing','description','category','variants','rating','numReviews','price','image','occasion','pattern','top_fabric','top_length','bottom_fabric','bottom_length','dupata_fabric','dupata_length','count_in_stock']
+        fields = ['_id','item_code','name','brand','category','washing','description','category','variants','rating','numReviews','price','image','occasion','pattern','top_fabric','top_length','bottom_fabric','bottom_length','dupata_fabric','dupata_length','count_in_stock','style_code', 'collection']
 class ShippingAddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = ShippingAddress
@@ -86,4 +92,10 @@ class OrderSerializer(serializers.ModelSerializer):
             address = False
         return address
 
-    
+
+class FeaturedProductSerializer(serializers.ModelSerializer):
+
+    product =  ProductSerializer()
+    class Meta:
+        model = FeaturedProduct
+        fields = '__all__'

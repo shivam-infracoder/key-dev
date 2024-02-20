@@ -41,6 +41,8 @@ function SandookScreen() {
         return curElem[property].name;
        
     })
+    console.log('hee');
+    console.log(newVal);
     return newVal = ["All",...new Set(newVal)]
     console.log('hee');
     console.log(newVal);
