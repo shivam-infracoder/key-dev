@@ -2,7 +2,7 @@ import { combineReducers, applyMiddleware} from 'redux'
 import { configureStore } from '@reduxjs/toolkit'
 import {thunk} from 'redux-thunk'
 import { composeWithDevTools } from '@redux-devtools/extension'
-import { productListReducers, productDetailsReducers, fProductListReducers } from './reducers/productReducers'
+import { productListReducers, productDetailsReducers, fProductListReducers, collectionProductListReducers } from './reducers/productReducers'
 import { cartReducer } from './reducers/cartReducers'
 import { Container } from 'react-bootstrap'
 
@@ -11,6 +11,7 @@ const reducer = combineReducers({
     productDetails: productDetailsReducers,
     cart: cartReducer,
     fProductList: fProductListReducers,
+    collectionProductList: collectionProductListReducers,
 
 })
 

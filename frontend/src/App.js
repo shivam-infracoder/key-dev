@@ -13,6 +13,8 @@ import SlotBookScreen from './screens/SlotBookScreen'
 import PlaceSandook from './screens/PlaceSandook'
 import SandookScreen from './screens/SandookScreen';
 import SandookPayment from './screens/SandookPayment';
+import CollectionScreen from './screens/CollectionScreen'
+import OccasionScreen from './screens/OccasionScreen';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
             <Route path='/cart/:id?' Component={CartScreen}  />
             <Route path='/category/unstiched' Component={CategoryScreen}  />
             <Route path='/category/stiched' Component={StichedCategoryScreen}  />
+            <Route path='/collection/:id?' Component={CollectionScreen}  />
+            <Route path='/occasion/:id?' Component={OccasionScreen}  />
             
             
             <Route path='/mysandook' Component={SandookScreen}  />

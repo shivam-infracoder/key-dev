@@ -1,14 +1,14 @@
 # Shivam Infra Coder 
 
 from django.shortcuts import render
-from productlist_app.models import Product, Order, OrderItem, ShippingAddress, FeaturedProduct, Category, Pattern, Collection
+from productlist_app.models import Product, Order, OrderItem, ShippingAddress, FeaturedProduct, Category, Pattern, Collection, Occasion
 from django.http import JsonResponse
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .serializers import ProductSerializer, CategorySerializer, FeaturedProductSerializer, PatternSerializer, CollectionSerializer
+from .serializers import ProductSerializer, CategorySerializer, FeaturedProductSerializer, PatternSerializer, CollectionSerializer, OccasionSerializer
 
 
 # Create your views here.
@@ -42,9 +42,29 @@ class CategoryList(APIView):
 
 class CollectionList(APIView):
     def get(self,request):
-        categories=Collection.objects.all()
-        serializer = CollectionSerializer(categories, many=True)
+        collections=Collection.objects.all()
+        serializer = CollectionSerializer(collections, many=True)
         return Response(serializer.data)
+
+class OccasionList(APIView):
+    def get(self,request):
+        collections=Occasion.objects.all()
+        serializer = OccasionSerializer(collections, many=True)
+        return Response(serializer.data)
+    
+class CollectionProduct(APIView):
+    def get(self,request,id):
+        products=Product.objects.filter(collection= id)
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
+    
+class OccasionProduct(APIView):
+    def get(self,request,id):
+        products=Product.objects.filter(occasion= id)
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
+    
+    
     
 class PatternList(APIView):
     def get(self,request):

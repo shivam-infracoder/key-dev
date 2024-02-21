@@ -7,7 +7,11 @@ import {
     PRODUCT_DETAILS_SUCCESS,
     FPRODUCT_LIST_FAIL,
     FPRODUCT_LIST_REQUEST,
-    FPRODUCT_LIST_SUCCESS
+    FPRODUCT_LIST_SUCCESS,
+    COLLECTION_PRODUCT_LIST_FAIL,
+    COLLECTION_PRODUCT_LIST_REQUEST,
+    COLLECTION_PRODUCT_LIST_SUCCESS
+    
  } from '../constants/productConstants'
 
 // Below is the Products Reducer :: This will be used for store states
@@ -55,6 +59,25 @@ export const fProductListReducers=(state ={ fproducts:[]},action) =>{
 
         case FPRODUCT_LIST_FAIL:
             return{floading:false,ferror: action.payload}
+        
+        default:
+            return state
+    }
+}
+
+
+// collection reducer to request data based on collection 
+export const collectionProductListReducers=(state ={ collectionProducts:[]},action) =>{
+    switch(action.type){
+        case COLLECTION_PRODUCT_LIST_REQUEST:
+            return{collecgionLoading:true,collectionProducts: []}
+        case COLLECTION_PRODUCT_LIST_SUCCESS:
+            
+            return{collectionLoading:false,collectionProducts: action.payload}
+
+
+        case COLLECTION_PRODUCT_LIST_FAIL:
+            return{collectionLoading:false,collectionError: action.payload}
         
         default:
             return state

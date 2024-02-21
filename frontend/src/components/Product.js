@@ -25,7 +25,7 @@ function Product({product}) {
 
             </Card.Text>
             
-            {/* <Button variant="primary">Add To Cart</Button> */}
+            <i className='fas fa-heart' ></i>
       </Card.Body>
     </Card>
   )

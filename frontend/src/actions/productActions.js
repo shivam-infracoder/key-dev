@@ -7,7 +7,10 @@ import {
     PRODUCT_DETAILS_SUCCESS,
     FPRODUCT_LIST_FAIL,
     FPRODUCT_LIST_REQUEST,
-    FPRODUCT_LIST_SUCCESS
+    FPRODUCT_LIST_SUCCESS,
+    COLLECTION_PRODUCT_LIST_FAIL,
+    COLLECTION_PRODUCT_LIST_REQUEST,
+    COLLECTION_PRODUCT_LIST_SUCCESS
  } from '../constants/productConstants'
  import axios from 'axios'
 
@@ -16,7 +19,7 @@ import {
     try{
 
         dispatch({type: PRODUCT_LIST_REQUEST})
-        const {data} = await axios.get('http://127.0.0.1:8000/product/list/')
+        const {data} = await axios.get('http://13.239.113.56:8000/product/list/')
         dispatch({type: PRODUCT_LIST_SUCCESS, payload: data})
     }
 
@@ -32,7 +35,7 @@ import {
     try{
 
         dispatch({type: PRODUCT_DETAILS_REQUEST})
-        const {data} = await axios.get(`http://127.0.0.1:8000/product/${id}`)
+        const {data} = await axios.get(`http://13.239.113.56:8000/product/${id}`)
         dispatch({type: PRODUCT_DETAILS_SUCCESS, payload: data})
     }
 
@@ -49,7 +52,7 @@ import {
     try{
 
         dispatch({type: FPRODUCT_LIST_REQUEST})
-        const {data} = await axios.get('http://127.0.0.1:8000/product/featured/')
+        const {data} = await axios.get('http://13.239.113.56:8000/product/featured/')
         dispatch({type: FPRODUCT_LIST_SUCCESS, payload: data})
         console.log(data)
         console.log('actions')
@@ -60,3 +63,21 @@ import {
     }
     
  }
+
+
+ // listCollectionDetails 
+ export const listCollectionDetails = (id) => async (dispatch) => {
+
+    try{
+
+        dispatch({type: COLLECTION_PRODUCT_LIST_REQUEST})
+        const {data} = await axios.get(`http://13.239.113.56:8000/product/collections/${id}`)
+        dispatch({type: COLLECTION_PRODUCT_LIST_SUCCESS, payload: data})
+    }
+
+    catch(error){
+            dispatch({type:COLLECTION_PRODUCT_LIST_FAIL, payload:error.response && error.response.data.message? error.response.data.message : error.message, })
+    }
+    
+ }
+

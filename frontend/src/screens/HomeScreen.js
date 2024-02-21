@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Row, Col, Button, Card, ListGroup } from 'react-bootstrap'
+import { Row, Col, Button, Card, ListGroup ,Image, Carousel, Figure} from 'react-bootstrap'
 // import axios from 'axios'
 import CourselHome from '../components/CourselHome'
 import Product from '../components/Product'
@@ -14,6 +14,7 @@ import VideoReels from '../components/VideoReels'
 import { listFProduct, listProduct } from '../actions/productActions'
 import axios from 'axios'
 import HomeOccasion from '../components/HomeOccasion'
+import Collections from '../components/Collections'
 
 function HomeScreen() {
   // const [products, setProducts] = useState([])
@@ -50,147 +51,87 @@ function HomeScreen() {
         <div style={{justifyContent:'center'}}>
          <Row>
          <div class="strike">
-         <span><h3 className='my-1'>Feature Products</h3></span>
+         <span><h3 className='my-1'>Holi Special</h3></span>
          </div>
         
     
          </Row>
          <Row>
-          <Col md={5}></Col>
-          <Col md={2} xs={12} style={{justifyContent:'center', alignItems:'center', display:'flex'}}>
          
-          <Button size='sm' variant='outline-dark'>View All</Button>
-          
-          </Col>
+         <Carousel className='pm-0'>
+           <Carousel.Item interval={1500}>
+              <img 
+                      className="d-block w-100"
+          src="b3.jpeg"
+                      alt="Image One"
+                      
+                    /> 
+          <Carousel.Caption>
+              <Button>Shop Now</Button>
+          </Carousel.Caption>
+ 
+    </Carousel.Item>
+    </Carousel>
          </Row>
-         <Row>
-
-{fproducts.map(p => (
-    <Col style={{justifyContent:'center', alignItems:'center', display:'flex'}} key={p._id}  sm={6} md={6} lg={3}>
-        {/* <h3>{product.name}</h3> */}
-        <Product product={p.product} />
-    </Col>
-))}
-
-          </Row> 
-        
+         
    
         </div>
+      
         <div style={{justifyContent:'center'}}>
          <Row>
          <div class="strike">
-         <span><h3 className='my-3'>Kaan Print </h3></span>
-         </div>
-         </Row>
-         <Row  >
-          <Col md={5}></Col>
-          <Col md={2} xs={12} style={{justifyContent:'center', alignItems:'center', display:'flex'}}>
-         
-          <Button size='sm' variant='outline-dark'>View All</Button>
-          
-          </Col>
-         </Row>
-        
-          <Row >
-
-{products.slice(0,4).map(product => (
-    <Col key={product._id}  sm={6} md={6} lg={3}>
-        {/* <h3>{product.name}</h3> */}
-        <Product product={product} />
-    </Col>
-))}
-
-          </Row> 
-           
-        </div>
-        <div style={{justifyContent:'center'}}>
-         <Row>
-         <div class="strike">
-         <span><h3 className='my-3'>Kashmira Collections</h3></span>
-         </div>
-         </Row>
-         <Row>
-          <Col md={5}></Col>
-          <Col md={2} xs={12} style={{justifyContent:'center', alignItems:'center', display:'flex'}}>
-         
-          <Button size='sm' variant='outline-dark'>View All</Button>
-          
-          </Col>
-         </Row>
-        
-          <Row>
-
-{products.slice(0,4).map(product => (
-    <Col key={product._id}  sm={6} md={6} lg={3}>
-        {/* <h3>{product.name}</h3> */}
-        <Product product={product} />
-    </Col>
-))}
-
-          </Row> 
-           
-        </div>
-        <div style={{justifyContent:'center'}}>
-         <Row>
-         <div class="strike">
-         <span><h3 className='my-3'>By Collection</h3></span>
+         <span><h3 className='my-3'>Collections</h3></span>
          </div>
          </Row>
         
         
           <Row>
-
-<Col style={{justifyContent:'center', alignItems:'center', display:'flex'}}>
-<Card className='rounded my-2 bg-dark text-white' style={{ width: '16rem' , height: '19rem' }} >
-    <Link to='/category/stiched'>
-     <Card.Img src='st.jpeg'/>
-     </Link>
-     <>
-        <Card.Body>
-            <Card.Text as="div">
-                
-                <div className='my-0'>
-                <Card.Title as="div" style={{justifyContent:'center', alignItems:'center', display:'flex'}}><h6>STICHED</h6></Card.Title>
-                    
-                    {/* <Rating value={product.rating} text={`${product.numReviews} reviews`}  color={'#f8e825'} /> */}
-                </div>
-            </Card.Text>
-      
-            
-            {/* <Button variant="primary">Add To Cart</Button> */}
-      </Card.Body>
-      </>
-    </Card>
-</Col>
-
-<Col style={{justifyContent:'center', alignItems:'center', display:'flex'}}>
-<Card className='rounded my-2 bg-dark text-white' style={{ width: '16rem', height: '19rem' }} >
-<Link to='/category/unstiched'>
-     <Card.Img src='un.jpeg' / >
-     </Link>
-     <>
-        <Card.Body>
-            <Card.Text as="div">
-                
-                <div className='my-0'>
-                <Card.Title as="div" style={{justifyContent:'center', alignItems:'center', display:'flex'}}><h6>Un-STICHED</h6></Card.Title>
-                    
-                    {/* <Rating value={product.rating} text={`${product.numReviews} reviews`}  color={'#f8e825'} /> */}
-                </div>
-            </Card.Text>
-      
-            
-            {/* <Button variant="primary">Add To Cart</Button> */}
-      </Card.Body>
-      </>
-    </Card>
-</Col>
-          </Row> 
-           
+              <Collections />
+          </Row>
         </div>
+
+        <div style={{justifyContent:'center'}}>
+         <Row>
+         <div class="strike">
+         <span><h3 className='my-1'>Special Collection</h3></span>
+         </div>
+        
+    
+         </Row>
+         <Row>
+         
+         <Carousel className='pm-0'>
+           <Carousel.Item interval={1500}>
+              <img 
+                      className="d-block w-100"
+                      src="b2.jpeg"
+                      alt="Image One"
+                    /> 
+          <Carousel.Caption>
+              {/* <Button>Shop Now</Button> */}
+          </Carousel.Caption>
+    </Carousel.Item>
+
+    <Carousel.Item interval={1500}>
+              <img 
+                      className="d-block w-100"
+                      src="b1.jpeg"
+                      alt="Image One"
+                    /> 
+          <Carousel.Caption>
+              {/* <Button>Shop Now</Button> */}
+          </Carousel.Caption>
+    </Carousel.Item>
+    </Carousel>
+         </Row>
+         
+   
+        </div>
+      
+
        
         <div class="strike">
-   <span><h3 className='my-3'>Occasion</h3></span>
+   <span><h3 className='my-3'>By Occasion</h3></span>
 </div>
 {loading ?<loader />: error? <Message variant='danger'>{error}</Message>:
          <Row>
@@ -199,7 +140,57 @@ function HomeScreen() {
          </Row>
 
             }
+      
+
+        <div style={{justifyContent:'center'}}>
+         <Row>
+         <div class="strike">
+         <span><h3 className='my-3'>By Category</h3></span>
+         </div>
+         </Row>
+        
+        
+          <Row>
+
+<Col style={{justifyContent:'center', alignItems:'center', display:'flex'}}>
+
+    <Link to='/category/stiched'>
+    <Figure className='my-2'>
+                                    <Figure.Image
+                                        src="st.jpeg"
+                                        style={{height:'200px', width:'200px'}}
+
+                                    />
+                                    <Figure.Caption>
+                                        Stiched
+                                    </Figure.Caption>
+                                </Figure>
+     </Link>
+</Col>
+
+<Col style={{justifyContent:'center', alignItems:'center', display:'flex'}}>
+
+<Link to='/category/unstiched'>
+<Figure className='my-2'>
+                                    <Figure.Image
+                                        src="un.jpeg"
+                                        style={{height:'200px', width:'200px'}}
+
+                                    />
+                                    <Figure.Caption>
+                                        Unstiched
+                                    </Figure.Caption>
+                                </Figure>
+     </Link>
+    
+     
+</Col>
+          </Row> 
+           
+        </div>
+
     </div>
+    
   )
 }
 

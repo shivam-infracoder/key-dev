@@ -47,9 +47,7 @@ function ProductScreen() {
             <Row>
             <Col md={3}>
                 <Image src={product.image} alt={product.name}  fluid height={'auto'} rounded / >
-                <Row>
-                            <Button onClick={addToCartHandler} className='btn-block' type='button' disabled={product.count_in_stock == 0} > Add to Sandook</Button></Row>
-                          
+                        
             </Col>
             <Col md={6}>
                 <ListGroup variant='flush'>
